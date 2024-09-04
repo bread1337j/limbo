@@ -1,11 +1,17 @@
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.util.concurrent.TimeUnit;
 import javax.swing.JComponent;
 
 public class Window extends Thread {
     int ID;
+
+
+    public Window() throws AWTException {
+    }
+
     JFrame MakeScreen(){
         JFrame fr = new JFrame();
         fr.setSize(600, 600);
@@ -56,5 +62,11 @@ public class Window extends Thread {
         }
         //System.out.println(y);
         fr.setLocation(x, y);
+    }
+
+    public void setColorToScreen(int x, int y, JFrame fr, BufferedImage capture) throws AWTException {
+
+
+        fr.getContentPane().setBackground(new Color(capture.getRGB(x, y)));
     }
 }
